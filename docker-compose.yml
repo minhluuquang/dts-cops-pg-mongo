@@ -1,0 +1,25 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_DB: local
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    container_name: postgres
+    ports:
+      - '5432:5432'
+    expose:
+      - 5432
+  mongo:
+    image: mongo:latest
+    restart: always
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - '27017:27017'
+    expose:
+      - 27017
